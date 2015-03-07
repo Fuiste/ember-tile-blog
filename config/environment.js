@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'day6',
+    modulePrefix: 'context-story',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -21,7 +21,7 @@ module.exports = function(environment) {
 	      'default-src': "'none'",
 	      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
 	      'font-src': "'self'",
-	      'connect-src': "'self'",
+	      'connect-src': "*",
 	      'img-src': "'self'",
 	      'report-uri':"'localhost'",
 	      'style-src': "'self' 'unsafe-inline'",

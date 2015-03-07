@@ -1,28 +1,31 @@
 import Ember from 'ember';
 
-var Ref = new window.Firebase("https://blogexample.firebaseio.com/");  
+var Ref = new window.Firebase("https://amber-torch-9285.firebaseio.com/");
 
 
 var auth = Ember.Object.extend({  
   authed: false,
   username: '',
-  init: function() {
-    this.authClient = new window.FirebaseSimpleLogin(Ref, function(error, twitterUser) {
+  login: function(email, password){
+    var self = this;
+    Ref.authWithPassword({
+      email: email,
+      password: password
+    }, function(error, authData) {
       if (error) {
-        alert('Authentication failed: ' + error);
-      } else if (twitterUser) {
-        this.set('authed', true);
-	this.set('username',twitterUser.username);
+        console.log('Login failed!');
       } else {
-        this.set('authed', false);
+        self.set('authed', true);
       }
-    }.bind(this));
+    });
   },
-
   logout: function() {
-    this.authClient.logout();
+    Ref.unauth();
 	this.set('authed', false);
-  }
+  },
+  authObserver: function(){
+    Ember.$('#login-modal').modal('hide');
+  }.observes('authed').on('set')
 });
 
 

@@ -1,21 +1,44 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-                <div class="navbar-header" href="#">
-                        <a class="navbar-brand" href="#">Blog</a>
-                </div>
-                <ul class="nav navbar-nav">
-                        <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>
-			{{#if auth.authed}}
-                        <li>{{#link-to 'posts.new'}}Add New Post{{/link-to}}</li>
-			{{/if}}
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                        {{#unless auth.authed}}
-                        <li><a href="#" {{action 'login' on='click'}}>Login</a></li>
-                        {{else}}
-                        <li><a href="#" {{action 'logout' on='click'}}>Logout</a></li>
-                        {{/unless}}
-                </ul>
+    <div class="container-fluid">
+        <div class="navbar-header" href="#">
+            <a class="navbar-brand" href="#">Blog</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li>
+                {{#link-to 'posts'}}Posts{{/link-to}}
+            </li>
+            {{#if auth.authed}}
+                <li>
+                    {{#link-to 'posts.new'}}Add New Post{{/link-to}}
+                </li>
+            {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+                {{#unless auth.authed}}
+                    <li><a href="#" {{action 'login' on='click'}}>Login</a></li>
+                {{else}}
+                    <li><a href="#" {{action 'logout' on='click'}}>Logout</a></li>
+                {{/unless}}
+        </ul>
+    </div>
 </nav>
 {{outlet}}
+<div id="login-modal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="loading-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="add-category-label">Log In</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Username</h3>
+                {{input value=username type='text' class='form-control'}}
+                <h3>Password</h3>
+                {{input value=password type='password' class='form-control'}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" {{action 'doLogin'}} aria-hidden="true">Log In!</button>
+            </div>
+        </div>
+    </div>
+</div>

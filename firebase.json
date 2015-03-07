@@ -1,5 +1,5 @@
 {
-  "firebase": "blogexample",
+  "firebase": "amber-torch-9285",
   "public": "dist/",
   "ignore": [
     "firebase.json",
