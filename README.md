@@ -1,6 +1,6 @@
 # Ember Tile Blog
 
-Based on the ember firebase blog seen on [ProgramWithErik](http://www.programwitherik.com)
+Based on the ember firebase blog seen on [ProgramWithErik](http://www.programwitherik.com/blog-tutorial-with-ember-js/)
 
 
 ## Prerequisites
