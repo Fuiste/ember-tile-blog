@@ -1,8 +1,6 @@
-# Ember CLI Tutorial Blog With Firebase
+# Ember Tile Blog
 
-This is a repository for a tutorial on [ProgramWithErik](http://www.programwitherik.com)
-
-Please make sure to change the adapter/application.js to match your own firebase URL. 
+Based on the ember firebase blog seen on [ProgramWithErik](http://www.programwitherik.com/blog-tutorial-with-ember-js/)
 
 
 ## Prerequisites
