@@ -3,6 +3,26 @@ html, body {
 
     padding-top: 20px;
 }
+
+.full-post{
+    background-color:antiquewhite;
+    background-size:130% auto;
+    background-position:50% 50%;
+    background-repeat: no-repeat;
+    height: 300px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.normal-post{
+    background-color:antiquewhite;
+    background-size:130% auto;
+    background-position:50% 50%;
+    background-repeat: no-repeat;
+    height: 300px;
+    margin: 15px;
+}
+
 .hover-fix{
     opacity:0;
     background: #000000;

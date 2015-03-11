@@ -1,13 +1,14 @@
 <div class="col-md-4">
-	<h1>New Post</h1>
+    <h1>New Post</h1>
 
-	<form {{action 'save' on="submit"}}>
+    <form {{action 'save' on="submit"}}>
 
-	<dl>
-	<dt>Title:</br> {{textarea value=title cols="80" rows="1"}}</dt>
-	<dt>Content:</br> {{textarea value=description cols="80" rows="6"}}</dt>
-	<dt>Large post:</br>{{input type="checkbox" name="isAdmin" checked=large}}</dt>
-	</dl>
-	<button type="submit" class="btn btn-primary">Add</button>
-	</form>
-<div class="col-md-4">
+        <dl>
+            <dt>Title:</br> {{textarea value=title cols="80" rows="1"}}</dt>
+            <dt>Content:</br> {{textarea value=description cols="80" rows="6"}}</dt>
+            <dt>Large post:</br>{{input type="checkbox" name="largePost" checked=large}}</dt>
+            <dt>Full row post:</br>{{input type="checkbox" name="fullWidth" checked=fullWidth}}</dt>
+        </dl>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    <div class="col-md-4">

@@ -15,6 +15,14 @@ export default Ember.Controller.extend({
                 Ember.$('#posts-main').fadeIn(200);
             });
         },
+        goToNew: function() {
+            var self = this;
+            Ember.$('#posts-main').fadeOut(200, function(){
+                self.get('posts').set('postVisible', true);
+                self.transitionToRoute('posts.new');
+                Ember.$('#posts-main').fadeIn(200);
+            });
+        },
 		login: function() {
 			Ember.$('#login-modal').modal('show');
 		},

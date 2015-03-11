@@ -5,5 +5,6 @@ export default DS.Model.extend({
     description: DS.attr('string'),
     author: DS.attr('string'),
     large: DS.attr('boolean'),
+    fullWidth: DS.attr('boolean'),
     date: DS.attr('date')
 });

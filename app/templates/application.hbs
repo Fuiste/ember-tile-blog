@@ -9,7 +9,7 @@
             </li>
             {{#if auth.authed}}
                 <li>
-                    {{#link-to 'posts.new'}}Add New Post{{/link-to}}
+                    <a href="javascript:void(0);" {{action 'goToNew'}}>New Post</a>
                 </li>
             {{/if}}
         </ul>
