@@ -17,7 +17,7 @@ You will need the following things installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/Fuiste/ember-tile-blog.git` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
