@@ -5,7 +5,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li>
-                {{#link-to 'posts'}}Posts{{/link-to}}
+                <a href="javascript:void(0);" {{action 'goToPosts'}}>Posts</a>
             </li>
             {{#if auth.authed}}
                 <li>

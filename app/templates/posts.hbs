@@ -1,9 +1,16 @@
-<div class="row">	
-	<div class="col-md-4"> 
-		<h1>Posts</h1>
-		{{#each p in model}}
-		</br>{{#link-to 'posts.edit' p.id}} {{p.title}}{{/link-to}}
-		{{/each}}
-	</div>
-		{{outlet}}
+<div id='posts-main' class="row">
+    <div {{bind-attr class="postVisible:hidden:col-sm-12"}}>
+        <div class="row">
+            {{#each p in model}}
+                <div {{bind-attr class="p.large:col-sm-8:col-sm-4"}}>
+                    <div class="well" style="margin: 15px;">
+                        <button {{action 'transitionToPost' p}} class="btn btn-primary">{{p.title}}</button>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div {{bind-attr class="postVisible:col-sm-12:hidden"}}>
+      {{outlet}}
+    </div>
 </div>
