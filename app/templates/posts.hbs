@@ -3,8 +3,11 @@
         <div class="row">
             {{#each p in model}}
                 <div {{bind-attr class="p.large:col-sm-8:col-sm-4"}}>
-                    <div class="well" style="margin: 15px;">
-                        <button {{action 'transitionToPost' p}} class="btn btn-primary">{{p.title}}</button>
+                    <div {{action 'transitionToPost' p}} style="background-image: url(http://i.imgur.com/9lDdLYR.jpg); background-color:antiquewhite; background-size:130% auto; background-position:50% 50%; background-repeat: no-repeat; height: 300px; margin: 15px;">
+                        <div align="center" class="hover-fix">
+                            <p>{{p.title}}</p>
+                            <p style="margin-top: 15px;">{{format-date p.date}}</p>
+                        </div>
                     </div>
                 </div>
             {{/each}}
