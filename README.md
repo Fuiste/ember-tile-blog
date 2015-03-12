@@ -1,8 +1,10 @@
 # Ember Tile Blog
 
-It's an Ember blog, with tiles.
+It's an Ember blog, with a cool tiling interface..
 
 Neat.
+
+I got the idea from [this](http://www.programwitherik.com/blog-tutorial-with-ember-js/) tutorial and decided to run with it.
 
 
 ## Prerequisites
