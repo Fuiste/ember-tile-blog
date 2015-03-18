@@ -24,6 +24,9 @@
                     <dl>
                         <dt>Title:</br> {{textarea class="form-control" value=model.title rows="1"}}</dt>
                         <dt>Description:</br> {{textarea class="form-control" value=model.description rows="8"}}</dt>
+                        {{#file-picker fileLoaded="fileLoaded" readAs="readAsDataURL"}}
+                          <button class="btn btn-primary">Click here to set image</button>
+                        {{/file-picker}}
                     </dl>
                 </form>
             </div>

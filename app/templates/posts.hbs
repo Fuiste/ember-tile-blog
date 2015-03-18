@@ -1,10 +1,13 @@
+{{#file-picker fileLoaded="fileLoaded" readAs="readAsDataURL"}}
+    Drag here or click to upload a file
+{{/file-picker}}
 <div id='posts-main' class="row">
     <div {{bind-attr class="postVisible:hidden:col-sm-12"}}>
-        <div class="row">
+        <div class="container">
             {{#each p in model}}
               {{#if p.fullWidth}}
                 <div class="col-sm-12">
-                    <div class="full-post" {{action 'transitionToPost' p}} style="background-image: url(http://i.imgur.com/9lDdLYR.jpg);">
+                    <div class="full-post" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
                         <div align="center" class="hover-fix">
                             <p>{{p.title}}</p>
                             <p style="margin-top: 15px;">{{format-date p.date}}</p>
@@ -12,8 +15,8 @@
                     </div>
                 </div>
               {{else}}
-                  <div {{bind-attr class=":col-sm-6 p.large:col-md-8:col-md-4 p.large:col-lg-9:col-lg-3"}}>
-                      <div class="normal-post" {{action 'transitionToPost' p}} style="background-image: url(http://i.imgur.com/9lDdLYR.jpg);">
+                  <div {{bind-attr class="p.large:col-sm-12:col-sm-6 p.large:col-md-8:col-md-4 p.large:col-lg-9:col-lg-3"}}>
+                      <div class="normal-post" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
                           <div align="center" class="hover-fix">
                               <p>{{p.title}}</p>
                               <p style="margin-top: 15px;">{{format-date p.date}}</p>

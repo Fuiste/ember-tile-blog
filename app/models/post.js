@@ -6,5 +6,15 @@ export default DS.Model.extend({
     author: DS.attr('string'),
     large: DS.attr('boolean'),
     fullWidth: DS.attr('boolean'),
-    date: DS.attr('date')
+    date: DS.attr('date'),
+    coverPhoto: DS.belongsTo('image'),
+    subPhotos: DS.hasMany('image'),
+    inlineStyle: function() {
+        var photo = this.get('coverPhoto');
+        if(photo){
+            return "background-image: url(" + photo.get('source') + ");";
+        } else {
+            return ""
+        }
+    }.property('coverPhoto')
 });

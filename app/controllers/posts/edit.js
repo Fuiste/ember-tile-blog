@@ -30,6 +30,18 @@ export default Ember.Controller.extend({
         edit: function() {
             this.set('isEditing', true);
             Ember.$('#edit-modal').modal('show');
+        },
+        fileLoaded: function(file) {
+            var self = this;
+            console.log(file.filename, file.type, file.data, file.size);
+            var newImg = this.store.createRecord('image', {
+                source: file.data
+            });
+            newImg.save().then(function(image) {
+                console.log(image);
+                self.get('model').set('coverPhoto', image);
+                self.get('model').save();
+            });
         }
     }
 });
