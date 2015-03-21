@@ -6,10 +6,20 @@ html, body {
 
 .full-post{
     background-color:antiquewhite;
-    background-size:130% auto;
+    background-size:100% auto;
     background-position:50% 50%;
     background-repeat: no-repeat;
     height: 350px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.post-detail{
+    background-color:antiquewhite;
+    background-size:100% auto;
+    background-position:50% 50%;
+    background-repeat: no-repeat;
+    height: 550px;
     margin-top: 15px;
     margin-bottom: 15px;
 }

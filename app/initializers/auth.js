@@ -1,26 +1,20 @@
 import Ember from 'ember';
-
-var Ref = new window.Firebase("https://amber-torch-9285.firebaseio.com/");
-
+import ENV from '../config/environment';
 
 var auth = Ember.Object.extend({  
   authed: false,
   username: '',
   login: function(email, password){
-    var self = this;
-    Ref.authWithPassword({
-      email: email,
-      password: password
-    }, function(error, authData) {
-      if (error) {
-        console.log('Login failed!');
-      } else {
-        self.set('authed', true);
-      }
-    });
+      var self = this;
+      Ember.$.ajax({
+          url: ENV.APP.API_HOST + '/api/auth/',
+          data: {email: email, password: password},
+          type: 'POST'
+      }).success(function(resp){
+          console.log(resp);
+      });
   },
   logout: function() {
-    Ref.unauth();
 	this.set('authed', false);
   },
   authObserver: function(){

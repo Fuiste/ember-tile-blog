@@ -8,7 +8,6 @@ export default DS.Model.extend({
     fullWidth: DS.attr('boolean'),
     date: DS.attr('date'),
     coverPhoto: DS.belongsTo('image'),
-    subPhotos: DS.hasMany('image'),
     inlineStyle: function() {
         var photo = this.get('coverPhoto');
         if(photo){

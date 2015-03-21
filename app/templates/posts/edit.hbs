@@ -1,14 +1,19 @@
 <div id="post-view" class="row">
+    <div class="col-sm-12">
+        <div class="post-detail" {{bind-attr style=model.inlineStyle}}></div>
+    </div>
     <div class="col-md-12">
-        <button class="btn btn-default" {{action 'close'}}>Close</button>
         <h1>{{model.title}}</h1>
         <h3>{{showdown-addon model.description}}</h3>
         <h5>-{{model.author}}</h5>
         <h5>{{format-date model.date}}</h5>
         <form {{action 'edit' on="click"}}>
-          {{#if auth.authed}}
-              <button type="submit" class="bt btn-primary">Edit</button>
-          {{/if}}
+            <div class="btn-group">
+              {{#if auth.authed}}
+                  <button type="submit" class="bt btn-primary">Edit</button>
+              {{/if}}
+                <button class="btn btn-default" {{action 'close'}}>Close</button>
+            </div>
         </form>
     </div>
 </div>
