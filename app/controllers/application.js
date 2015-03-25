@@ -4,7 +4,9 @@ export default Ember.Controller.extend({
 	needs: ['posts/edit', 'posts'],
     posts: Ember.computed.alias('controllers.posts'),
 	loginVisible: false,
-	username: '',
+	username: function() {
+        this.get('auth.model.email');
+    }.property('auth.model'),
 	password: '',
 	actions: {
         goToPosts: function() {
