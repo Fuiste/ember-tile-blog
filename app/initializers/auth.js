@@ -48,6 +48,7 @@ var auth = Ember.Object.extend({
             data: {email: email, password: password},
             type: 'POST'
         }).success(function(resp){
+            self.set('username', resp.email);
             self.set('userId', resp.user);
             self.set('token', resp.token);
         });

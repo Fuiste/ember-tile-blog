@@ -1,4 +1,5 @@
 <div id="post-view" class="row">
+
     <div class="col-sm-12">
         <div class="post-detail" {{bind-attr style=model.inlineStyle}}></div>
     </div>
@@ -10,7 +11,7 @@
         <form {{action 'edit' on="click"}}>
             <div class="btn-group">
               {{#if auth.authed}}
-                  <button type="submit" class="bt btn-primary">Edit</button>
+                  <button type="submit" class="btn btn-primary">Edit</button>
               {{/if}}
                 <button class="btn btn-default" {{action 'close'}}>Close</button>
             </div>
