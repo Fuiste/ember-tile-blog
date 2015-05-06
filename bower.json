@@ -13,13 +13,14 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
-    "ember-uploader": "~0.3.5"
+    "ember-uploader": "0.3.6"
   },
   "devDependencies": {
     "bootstrap": "~3.3.1",
     "emberfire": "~1.3.1",
     "moment": "~2.9.0",
-    "firebase-simple-login": "~1.6.4"
+    "firebase-simple-login": "~1.6.4",
+    "ember-uploader": "~0.3.6"
   },
   "resolutions": {
     "firebase": "2.0.x"

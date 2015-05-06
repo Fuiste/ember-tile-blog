@@ -22,7 +22,7 @@ module.exports = function(environment) {
 	      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
 	      'font-src': "'self'",
 	      'connect-src': "*",
-	      'img-src': "'self'",
+	      'img-src': "*",
 	      'report-uri':"'localhost'",
 	      'style-src': "'self' 'unsafe-inline'",
 	      'frame-src': "'none'"
@@ -32,7 +32,7 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
       ENV.APP.LOG_TRANSITIONS = true;
-      ENV.APP.API_HOST = 'http://context-blog.herokuapp.com';
+      ENV.APP.API_HOST = 'http://localhost:8000';
       ENV.APP.API_NAMESPACE = 'api';
   }
 
