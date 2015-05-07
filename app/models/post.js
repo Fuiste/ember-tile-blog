@@ -11,7 +11,7 @@ export default DS.Model.extend({
     inlineStyle: function() {
         var photo = this.get('coverPhoto');
         if(photo){
-            return "background-image: url(" + photo.get('source') + ");";
+            return "background-image: url(" + photo.get('url') + ");";
         } else {
             return ""
         }
