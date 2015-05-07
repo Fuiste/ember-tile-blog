@@ -1,15 +1,12 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header" href="#">
             <a class="navbar-brand" href="javascript:void(0);" {{action 'goToPosts'}}>Home</a>
         </div>
         <ul class="nav navbar-nav">
-            <li>
-                <a href="javascript:void(0);" {{action 'goToPosts'}}>Posts</a>
-            </li>
             {{#if auth.authed}}
                 <li>
-                    <a href="javascript:void(0);" {{action 'goToNew'}}>New Post</a>
+                    <a href="javascript:void(0);" {{action 'goToNew'}}>New</a>
                 </li>
             {{/if}}
         </ul>

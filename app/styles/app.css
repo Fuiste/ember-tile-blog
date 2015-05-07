@@ -10,8 +10,8 @@ html, body {
     background-position:50% 50%;
     background-repeat: no-repeat;
     height: 350px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .post-detail{
@@ -30,7 +30,12 @@ html, body {
     background-position:50% 50%;
     background-repeat: no-repeat;
     height: 250px;
-    margin: 15px;
+    margin: 4px;
+}
+
+.padding-fix{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .hover-fix{
