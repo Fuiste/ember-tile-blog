@@ -4,7 +4,7 @@
             {{#each p in model}}
               {{#if p.fullWidth}}
                 <div class="col-sm-12 padding-fix">
-                    <div class="full-post" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
+                    <div class="full-post hover-scale" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
                         <div align="center" class="hover-fix">
                             <p>{{p.title}}</p>
                             <p style="margin-top: 15px;">{{format-date p.date}}</p>
@@ -13,7 +13,7 @@
                 </div>
               {{else}}
                   <div {{bind-attr class="p.large:col-sm-12:col-sm-6 p.large:col-md-8:col-md-4 p.large:col-lg-9:col-lg-3 :padding-fix"}}>
-                      <div class="normal-post" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
+                      <div {{bind-attr class="p.large:large-post:normal-post :hover-scale"}} {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
                           <div align="center" class="hover-fix">
                               <p>{{p.title}}</p>
                               <p style="margin-top: 15px;">{{format-date p.date}}</p>

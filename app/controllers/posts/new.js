@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     needs: ['posts'],
     posts: Ember.computed.alias('controllers.posts'),
+    image: null,
     actions: {
         save: function() {
             var title = this.get('title');
@@ -10,23 +11,25 @@ export default Ember.Controller.extend({
             var author = this.get('auth').username;
             var large = this.get('large');
             var fullWidth = this.get('fullWidth');
+            var img = this.get('image');
             var date = new Date();
             if(!title.trim()) {return; } //empty string
 
             var post = this.store.createRecord('post', {
                 title:title,
+                coverPhoto:img,
                 description:description,
                 author:author,
                 large:large,
                 fullWidth:fullWidth,
                 date:date
-
             });
             this.set('title','');
             this.set('description','');
             this.set('author','');
             this.set('large', false);
             this.set('fullWidth', false);
+            this.set('image', null);
             post.save();
             var self = this;
             Ember.$('#posts-main').fadeOut(200, function(){
@@ -34,6 +37,12 @@ export default Ember.Controller.extend({
                 self.transitionToRoute('posts');
                 Ember.$('#posts-main').fadeIn(200);
             });
+        },
+        handleCoverUpload: function(url) {
+          var self = this;
+          this.store.createRecord('image', {url: url}).save().then(function(newImg) {
+            self.set('image', newImg);
+          });
         }
     }
 });

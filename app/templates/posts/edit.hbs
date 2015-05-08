@@ -1,44 +1,46 @@
 <div id="post-view" class="row">
-
+  <div class="row">
     <div class="col-sm-12">
-        <div class="post-detail" {{bind-attr style=model.inlineStyle}}></div>
+      <div class="post-detail" {{bind-attr style=model.inlineStyle}}></div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-12">
-        <h1>{{model.title}}</h1>
-        <h3>{{showdown-addon model.description}}</h3>
-        <h5>-{{model.author}}</h5>
-        <h5>{{format-date model.date}}</h5>
-        <form {{action 'edit' on="click"}}>
-            <div class="btn-group">
-              {{#if auth.authed}}
-                  <button type="submit" class="btn btn-primary">Edit</button>
-              {{/if}}
-                <button class="btn btn-default" {{action 'close'}}>Close</button>
-            </div>
-        </form>
+      <h1 class="body-title">{{model.title}}</h1>
+      <h5 class="body-title">{{format-date model.date}}</h5>
+      <h5 class="body-title">{{model.author}}</h5>
+      <h4 class="body-text">{{showdown-addon model.description}}</h3>
+      <form {{action 'edit' on="click"}}>
+        <div class="btn-group">
+          {{#if auth.authed}}
+            <button type="submit" class="btn btn-primary">Edit</button>
+          {{/if}}
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 <div id="edit-modal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="loading-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="add-category-label">Edit Post</h4>
-            </div>
-            <div class="modal-body">
-                <form {{action 'save' on="submit"}}>
-                    <dl>
-                        <dt>Title:</br> {{textarea class="form-control" value=model.title rows="1"}}</dt>
-                        <dt>Description:</br> {{textarea class="form-control" value=model.description rows="8"}}</dt>
-                        {{file-upload action="handleCoverUpload"}}
-                    </dl>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
-                <button type="button" class="btn btn-danger pull-left" {{action 'del' on='click'}} aria-hidden="true">Delete</button>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="add-category-label">Edit Post</h4>
+      </div>
+      <div class="modal-body">
+        <form {{action 'save' on="submit"}}>
+          <dl>
+            <dt>Title:</br> {{textarea class="form-control" value=model.title rows="1"}}</dt>
+            <dt>Description:</br> {{textarea class="form-control" value=model.description rows="8"}}</dt>
+            {{file-upload action="handleCoverUpload"}}
+          </dl>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
+        <button type="button" class="btn btn-danger pull-left" {{action 'del' on='click'}} aria-hidden="true">Delete</button>
+        <div class="clearfix"></div>
+      </div>
     </div>
+  </div>
 </div>

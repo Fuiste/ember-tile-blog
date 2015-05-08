@@ -3,7 +3,7 @@ import ENV from '../config/environment';
 
 var auth = Ember.Object.extend({
     authed: function() {
-        return this.get('token') != null;
+      return this.get('token') != null;
     }.property('token'),
     username: null,
     userId: null,
