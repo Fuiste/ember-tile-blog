@@ -1,17 +1,12 @@
 import Ember from 'ember';
-import ENV from '../../config/environment';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
     needs: ['posts'],
     posts: Ember.computed.alias('controllers.posts'),
     actions: {
         close: function() {
-          var self = this;
-          Ember.$('#posts-main').fadeOut(200, function(){
-            self.get('posts').set('postVisible', false);
-            self.transitionToRoute('posts');
-            Ember.$('#posts-main').fadeIn(200);
-          });
+          this.transitionToRoute('posts');
         },
         save: function() {
           var d = this.get('model');

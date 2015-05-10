@@ -4,16 +4,19 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    needs: ['posts/edit'],
+    needs: ['edit'],
     postVisible: false,
+    page: 1,
+    twoWayNav: function() {
+      if(this.get('page') > 1) {
+        return true;
+      } else {
+        return false;
+      }
+    }.property('page'),
     actions: {
         transitionToPost: function(post) {
-            var self = this;
-            Ember.$('#posts-main').fadeOut(200, function(){
-                self.set('postVisible', true);
-                self.transitionToRoute('posts.edit', post.get('id'));
-                Ember.$('#posts-main').fadeIn(200);
-            });
+            this.transitionToRoute('edit', post.get('id'));
         }
     }
 

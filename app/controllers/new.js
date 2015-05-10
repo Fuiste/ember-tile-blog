@@ -31,12 +31,7 @@ export default Ember.Controller.extend({
             this.set('fullWidth', false);
             this.set('image', null);
             post.save();
-            var self = this;
-            Ember.$('#posts-main').fadeOut(200, function(){
-                self.get('posts').set('postVisible', false);
-                self.transitionToRoute('posts');
-                Ember.$('#posts-main').fadeIn(200);
-            });
+            this.transitionToRoute('posts');
         },
         handleCoverUpload: function(url) {
           var self = this;

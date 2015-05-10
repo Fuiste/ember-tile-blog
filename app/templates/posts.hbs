@@ -1,6 +1,11 @@
 <div id='posts-main' class="row">
     <div {{bind-attr class="postVisible:hidden:col-sm-12"}}>
         <div class="container">
+            <div class="row">
+              <h1 class="body-title">Tile Blog</h1>
+              <h2 class="body-title">A project by <a href="https://github.com/Fuiste">William Pelrine</a></h2>
+            </div>
+            <div id="posts-body" class="row">
             {{#each p in model}}
               {{#if p.fullWidth}}
                 <div class="col-sm-12 padding-fix">
@@ -22,9 +27,21 @@
                   </div>
               {{/if}}
             {{/each}}
+            </div>
+            {{#if this.twoWayNav}}
+            <div class="row">
+              <div class="col-sm-6">
+                <button {{action 'loadNewPage' this.page -1}}class="btn btn-block btn-link"><h1>Newer posts</h1></btn>
+              </div>
+              <div class="col-sm-6">
+                <button {{action 'loadNewPage' this.page 1}}class="btn btn-block btn-link"><h1>Older posts</h1></btn>
+              </div>
+            </div>
+            {{else}}
+            <div class="row">
+              <button {{action 'loadNewPage' this.page 1}}class="btn btn-block btn-link"><h1>Older posts</h1></btn>
+            </div>
+            {{/if}}
         </div>
-    </div>
-    <div {{bind-attr class="postVisible:col-sm-12:hidden"}}>
-      {{outlet}}
     </div>
 </div>

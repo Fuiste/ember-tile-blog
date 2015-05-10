@@ -9,7 +9,13 @@
       <h1 class="body-title">{{model.title}}</h1>
       <h5 class="body-title">{{format-date model.date}}</h5>
       <h5 class="body-title">{{model.author}}</h5>
-      <h4 class="body-text">{{showdown-addon model.description}}</h3>
+      <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-2 hidden-xs"></div>
+        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+          <h4 class="body-text">{{showdown-addon model.description}}</h4>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-2 hidden-xs"></div>
+      </div>
       <form {{action 'edit' on="click"}}>
         <div class="btn-group">
           {{#if auth.authed}}
@@ -21,7 +27,7 @@
   </div>
 </div>
 <div id="edit-modal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="loading-label" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -32,7 +38,8 @@
           <dl>
             <dt>Title:</br> {{textarea class="form-control" value=model.title rows="1"}}</dt>
             <dt>Description:</br> {{textarea class="form-control" value=model.description rows="8"}}</dt>
-            {{file-upload action="handleCoverUpload"}}
+            <dt>Upload a new cover photo:</br> {{file-upload action="handleCoverUpload"}}</dt>
+            <dt>Upload new album photos:</br> {{file-upload action="handleSubUpload"}}</br><button class="btn btn-default">Add another</button</dt>
           </dl>
         </form>
       </div>

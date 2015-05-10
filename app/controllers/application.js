@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	needs: ['posts/edit', 'posts'],
+	needs: ['edit', 'posts'],
     posts: Ember.computed.alias('controllers.posts'),
 	loginVisible: false,
 	username: function() {
@@ -9,22 +9,12 @@ export default Ember.Controller.extend({
     }.property('auth.model'),
 	password: '',
 	actions: {
-        goToPosts: function() {
-            var self = this;
-            Ember.$('#posts-main').fadeOut(200, function(){
-                self.get('posts').set('postVisible', false);
-                self.transitionToRoute('posts');
-                Ember.$('#posts-main').fadeIn(200);
-            });
-        },
-        goToNew: function() {
-            var self = this;
-            Ember.$('#posts-main').fadeOut(200, function(){
-                self.get('posts').set('postVisible', true);
-                self.transitionToRoute('posts.new');
-                Ember.$('#posts-main').fadeIn(200);
-            });
-        },
+    goToPosts: function() {
+        this.transitionToRoute('posts');
+    },
+    goToNew: function() {
+        this.transitionToRoute('new');
+    },
 		login: function() {
 			Ember.$('#login-modal').modal('show');
 		},
@@ -33,7 +23,7 @@ export default Ember.Controller.extend({
 		},
 		logout: function() {
 			this.get('auth').logout();
-			this.set('controllers.posts/edit.isEditing', false);
+			this.set('controllers.edit.isEditing', false);
 			this.transitionToRoute('posts');
 
 		}

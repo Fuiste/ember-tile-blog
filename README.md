@@ -2,6 +2,9 @@
 
 It's an Ember blog, with a cool tiling interface..
 
+![Awesome Screenshot!](https://s3-us-west-2.amazonaws.com/rudy-misc/Screen+Shot+2015-05-10+at+3.14.00+PM.png "Main page")
+![Another awesome screenshot!](https://s3-us-west-2.amazonaws.com/rudy-misc/Screen+Shot+2015-05-10+at+3.14.32+PM.png "Post page")
+
 Neat.
 
 I got the idea from [this](http://www.programwitherik.com/blog-tutorial-with-ember-js/) tutorial and decided to run with it.  In the end, it bears almost zero resemblance to the original blog, so... yeah...
@@ -37,4 +40,3 @@ This app expects to be able to communicate with [this](https://github.com/Fuiste
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
