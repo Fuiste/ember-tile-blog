@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     {{#each ph in model.subPhotos}}
-      <div class="col-xs-6 col-sm-2 padding-fix">
+      <div class="col-xs-6 col-sm-2 padding-fix" {{action 'imageModal' ph}}>
         <div class="album-listing hover-scale" {{bind-attr style=ph.inlineStyle}}></div>
       </div>
     {{/each}}
@@ -33,6 +33,7 @@
     </div>
   </div>
 </div>
+
 <div id="edit-modal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="loading-label" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -65,6 +66,24 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
         <button type="button" class="btn btn-danger pull-left" {{action 'del' on='click'}} aria-hidden="true">Delete</button>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="image-modal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="loading-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="post-detail" {{bind-attr style=selectedPhoto.inlineStyle}}></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default pull-right">Close</button>
         <div class="clearfix"></div>
       </div>
     </div>

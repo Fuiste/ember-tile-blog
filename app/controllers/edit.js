@@ -4,6 +4,7 @@ import ENV from '../config/environment';
 export default Ember.Controller.extend({
     needs: ['posts'],
     posts: Ember.computed.alias('controllers.posts'),
+    selectedPhoto: null,
     actions: {
         close: function() {
           this.transitionToRoute('posts');
@@ -25,6 +26,10 @@ export default Ember.Controller.extend({
         edit: function() {
           this.set('isEditing', true);
           Ember.$('#edit-modal').modal('show');
+        },
+        imageModal: function(image) {
+          this.set('selectedPhoto', image);
+          Ember.$('#image-modal').modal('show');
         },
         handleCoverUpload: function(url) {
           var self = this;
