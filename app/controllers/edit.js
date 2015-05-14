@@ -32,6 +32,13 @@ export default Ember.Controller.extend({
           this.store.createRecord('image', {url: url}).save().then(function(newImg) {
             post.set('coverPhoto', newImg);
           });
+        },
+        handleSubUpload: function(url) {
+          var self = this;
+          var post = this.get('model');
+          this.store.createRecord('image', {url: url}).save().then(function(newImg) {
+            post.get('subPhotos').pushObject(newImg);
+          });
         }
     }
 });

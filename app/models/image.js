@@ -4,5 +4,13 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    url: DS.attr('string')
+    url: DS.attr('string'),
+    inlineStyle: function() {
+        var url = this.get('url');
+        if(url){
+            return "background-image: url(" + url + ");";
+        } else {
+            return ""
+        }
+    }.property('url')
 });

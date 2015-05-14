@@ -5,6 +5,13 @@
     </div>
   </div>
   <div class="row">
+    {{#each ph in model.subPhotos}}
+      <div class="col-xs-6 col-sm-2 padding-fix">
+        <div class="album-listing hover-scale" {{bind-attr style=ph.inlineStyle}}></div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="row">
     <div class="col-md-12">
       <h1 class="body-title">{{model.title}}</h1>
       <h5 class="body-title">{{format-date model.date}}</h5>
@@ -35,11 +42,23 @@
       </div>
       <div class="modal-body">
         <form {{action 'save' on="submit"}}>
+        <div class="row">
+          <img class="edit-cover" {{bind-attr src=model.coverPhoto.url}}/>
+        </div>
           <dl>
+            <dt>Upload a new cover photo:</br> {{file-upload action="handleCoverUpload"}}</dt>
             <dt>Title:</br> {{textarea class="form-control" value=model.title rows="1"}}</dt>
             <dt>Description:</br> {{textarea class="form-control" value=model.description rows="8"}}</dt>
-            <dt>Upload a new cover photo:</br> {{file-upload action="handleCoverUpload"}}</dt>
-            <dt>Upload new album photos:</br> {{file-upload action="handleSubUpload"}}</br><button class="btn btn-default">Add another</button</dt>
+            <dt>
+              <div class="row">
+                {{#each ph in model.subPhotos}}
+                  <div class="col-xs-3">
+                    <img class="edit-img" {{bind-attr src=ph.url}}/>
+                  </div>
+                {{/each}}
+              </div>
+            </dt>
+            <dt>Upload new album photos:</br> {{file-upload action="handleSubUpload"}}</br></dt>
           </dl>
         </form>
       </div>
