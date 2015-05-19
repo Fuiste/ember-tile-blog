@@ -2,18 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	needs: ['edit', 'posts'],
-    posts: Ember.computed.alias('controllers.posts'),
+  posts: Ember.computed.alias('controllers.posts'),
 	loginVisible: false,
 	username: function() {
-        this.get('auth.model.email');
-    }.property('auth.model'),
+  	this.get('auth.model.email');
+  }.property('auth.model'),
 	password: '',
 	actions: {
     goToPosts: function() {
-        this.transitionToRoute('posts');
+      this.transitionToRoute('posts');
     },
     goToNew: function() {
-        this.transitionToRoute('new');
+      this.transitionToRoute('new');
     },
 		login: function() {
 			Ember.$('#login-modal').modal('show');
@@ -25,7 +25,6 @@ export default Ember.Controller.extend({
 			this.get('auth').logout();
 			this.set('controllers.edit.isEditing', false);
 			this.transitionToRoute('posts');
-
 		}
 	}
 

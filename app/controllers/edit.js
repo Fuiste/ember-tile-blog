@@ -17,11 +17,13 @@ export default Ember.Controller.extend({
           Ember.$('#edit-modal').modal('hide');
         },
         del: function() {
-          this.get('model').deleteRecord();
-          this.transitionToRoute('posts');
-          this.get('model').save();
-          this.set('isEditing', false);
-          Ember.$('#edit-modal').modal('hide');
+          var self = this;
+          this.get('model').destroyRecord().then(function(){
+            self.store.dematerializeRecord(self.get('model'));
+            self.set('isEditing', false);
+            Ember.$('#edit-modal').modal('hide');
+            self.transitionToRoute('posts');
+          });
         },
         edit: function() {
           this.set('isEditing', true);

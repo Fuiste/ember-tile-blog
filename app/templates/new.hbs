@@ -4,12 +4,24 @@
     <h1 class="body-title">New Post</h1>
 
     <form {{action 'save' on="submit"}}>
+      <div class="row">
+        <img class="edit-cover" {{bind-attr src=coverPhoto.url}}/>
+      </div>
       <h3 class="body-title">Cover Photo</h3>
       {{file-upload action="handleCoverUpload"}}
       <h3 class="body-title">Title</h3>
       {{input class="form-control" type="text" value=title cols="80"}}
       <h3 class="body-title">Content</h3>
       {{textarea class="form-control" value=description cols="80" rows="6"}}
+      <h3 class="body-title">Photo Album</h3>
+      <div class="row">
+        {{#each ph in subPhotos}}
+          <div class="col-xs-3">
+            <img class="edit-img" {{bind-attr src=ph.url}}/>
+          </div>
+        {{/each}}
+      </div>
+      {{file-upload action="handleSubUpload"}}
       <div class="row">
         <div class="col-sm-6">
           Large post:</br>{{input type="checkbox" name="largePost" checked=large}}
