@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
         var title = this.get('title');
         var description = this.get('description');
         var author = this.get('auth.username');
-        var large = this.get('large');
         var fullWidth = this.get('fullWidth');
         var img = this.get('image');
         var date = new Date();
@@ -22,7 +21,6 @@ export default Ember.Controller.extend({
           coverPhoto:img,
           description:description,
           author:author,
-          large:large,
           fullWidth:fullWidth,
           date:date
         });
@@ -35,7 +33,6 @@ export default Ember.Controller.extend({
           self.set('title','');
           self.set('description','');
           self.set('author','');
-          self.set('large', false);
           self.set('fullWidth', false);
           self.set('image', null);
           self.set('subPhotos', []);

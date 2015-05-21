@@ -6,7 +6,7 @@
               <h2 class="body-title">A project by <a href="https://github.com/Fuiste">William Pelrine</a></h2>
             </div>
             <div id="posts-body" class="row">
-            {{#each p in model}}
+            {{#each p in sortedModel}}
               {{#if p.fullWidth}}
                 <div class="col-sm-12 padding-fix">
                     <div class="full-post hover-scale" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
@@ -17,7 +17,17 @@
                     </div>
                 </div>
               {{else}}
-                  <div {{bind-attr class=":col-sm-6 p.large:col-md-8:col-md-4 p.large:col-lg-9:col-lg-3 :padding-fix"}}>
+                {{#if p.xLarge}}
+                  <div class="col-sm-12 padding-fix">
+                      <div class="large-post hover-scale" {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
+                          <div align="center" class="hover-fix">
+                              <p>{{p.title}}</p>
+                              <p style="margin-top: 15px;">{{format-date p.date}}</p>
+                          </div>
+                      </div>
+                  </div>
+                {{else}}
+                  <div {{bind-attr class=":col-xs-6 :col-sm-6 p.large:col-md-8:col-md-4 p.large:col-lg-9:col-lg-3 :padding-fix"}}>
                       <div {{bind-attr class="p.large:large-post:normal-post :hover-scale"}} {{action 'transitionToPost' p}} {{bind-attr style=p.inlineStyle}}>
                           <div align="center" class="hover-fix">
                               <p>{{p.title}}</p>
@@ -25,6 +35,7 @@
                           </div>
                       </div>
                   </div>
+                {{/if}}
               {{/if}}
             {{/each}}
             </div>

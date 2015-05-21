@@ -4,7 +4,7 @@
       <div class="post-detail" {{bind-attr style=model.inlineStyle}}></div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-left: 50px; margin-right: 50px;">
     {{#each ph in model.subPhotos}}
       <div class="col-xs-6 col-sm-2 padding-fix" {{action 'imageModal' ph}}>
         <div class="album-listing hover-scale" {{bind-attr style=ph.inlineStyle}}></div>
