@@ -40,5 +40,8 @@
     "glob": "^4.0.5",
     "moment": "^2.9.0",
     "qunit": "^0.7.5"
+  },
+  "dependencies": {
+    "bower": "^1.4.1"
   }
 }
