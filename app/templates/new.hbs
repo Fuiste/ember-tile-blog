@@ -5,7 +5,7 @@
 
     <form {{action 'save' on="submit"}}>
       <div class="row">
-        <img class="edit-cover" {{bind-attr src=coverPhoto.url}}/>
+        <img class="edit-cover" {{bind-attr src=image.url}}/>
       </div>
       <h3 class="body-title">Cover Photo</h3>
       {{file-upload action="handleCoverUpload"}}
